@@ -31,7 +31,8 @@ export async function getStaticPaths() {
   client.close();
 
   return {
-    fallback: false, // false: the paths arr contains all supported meetupId values
+    fallback: "blocking",
+    // false: the paths arr contains all supported meetupId values
     // true: pre-generate the ones listed in paths arr, and do for the other on the request of the page
     paths: meetupIds.map((path) => ({
       params: { meetupId: path._id.toString() },
